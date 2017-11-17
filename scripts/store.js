@@ -20,15 +20,22 @@ $(document).ready(function() {
 
                 const categories = categoriesInfo.categories;
 
-            products.forEach( 
-                function (currentP) {
-                    console.log(currentP)
-                    productString += `
-                        <h1>${currentP.name}</h1>
-                        <p>Price: ${currentP.price}</p>
-                    `
-            })
-
+            categories.forEach( category => {
+                productString += `
+                    <h1>${category.name}</h1>
+                `
+                products.forEach( 
+                    product => {
+                        if(category.id === product.category_id) {
+                            productString += `
+                                <h3>${product.name}</h3>
+                                <p>Price: ${product.price}</p>
+                          `
+                        }
+                })
+            }
+            
+        )
             
             outputEl.html(productString)
         })
