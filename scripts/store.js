@@ -26,7 +26,7 @@ $(document).ready(function() {
                         discountString += `
                             <option id="discount_${category.id}" value="${category.discount}">${category.season_discount}</option>
                         `
-                        productString += `<div id="category_${category.id}">`
+                        productString += `<div id="category_${category.id}" class="category">`
                         productString += `
                             <h1>${category.name}</h1> 
                         `
@@ -34,11 +34,11 @@ $(document).ready(function() {
                             product => {
                                 if(category.id === product.category_id) { //adds products to proper category
                                     productString += `
-                                        <section id="product_${product.id}">
+                                        <section id="product_${product.id}" class="product">
                                             <h3>${product.name}</h3>
                                             <p>Price: ${product.price}</p>
                                         </section>
-                                    `
+                                    ` 
                                 }
                         })
 
