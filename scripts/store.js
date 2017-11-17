@@ -24,10 +24,11 @@ $(document).ready(function() {
 
                     categories.forEach( category => {
                         discountString += `
-                            <option>${category.season_discount}<option> //adds discounts option to select
+                            <option id="discount_${category.id}" value="${category.discount}">${category.season_discount}</option>
                         `
+                        productString += `<div id="category_${category.id}">`
                         productString += `
-                            <h1>${category.name}</h1> //adds category to productString
+                            <h1>${category.name}</h1> 
                         `
                         products.forEach( 
                             product => {
@@ -40,6 +41,8 @@ $(document).ready(function() {
                                     `
                                 }
                         })
+
+                        productString += `</div>`
                     })
                     
                     outputEl.html(productString) //adds products to DOM
